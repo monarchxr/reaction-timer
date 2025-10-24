@@ -33,7 +33,7 @@ while running:
                     curr_state="COUNTDOWN"
                     cd_start = pygame.time.get_ticks()
 
-                elif curr_state == "READY":
+                elif curr_state == "READY" or curr_state == "COUNTDOWN":
                     print("User clicked too early")
                     curr_state = "EARLY"
 
@@ -66,11 +66,11 @@ while running:
             g_start = pygame.time.get_ticks()
 
     if curr_state in ["COUNTDOWN","READY"]:
-        screen.fill("red")
+        screen.fill((180,50,50))
     elif curr_state in ["WAITING","FINISHED", "EARLY"]:
-        screen.fill("white")
+        screen.fill((240,240,240))
     elif curr_state == "GREEN":
-        screen.fill("green")
+        screen.fill((50,205,50))
 
     if curr_state == "WAITING":
         draw_text("Welcome to Reaction Timer!", text_font, (0,0,0), X+15, Y)
